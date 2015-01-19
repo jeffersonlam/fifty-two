@@ -8,16 +8,24 @@
     <link rel="stylesheet" type="text/css" href="global.css">
 </head>
 <body ng-controller="FiftyTwoCtrl">
-<h1>52</h1>
-<h3>52 weeks, 52 projects</h3>
-<p>You're looking at the initial draft of my page for my 52 weeks of code.</p>
-<p>I don't know how it's going to look yet, but I'm gonna pretty it up somehow. It doesn't need to be anything complicated, it just needs to work well and be easy to navigate.</p>
-<p>-Jefferson Lam<br>1-19-15</p>
+<div class="width-container">
+	<header>
+		<h1>52</h1>
+		<h3>52 weeks, 52 projects</h3>
+		<p>You're looking at the initial draft of my page for my 52 weeks of code.</p>
+		<p>I don't know how it's going to look yet, but I'm gonna pretty it up somehow. It doesn't need to be anything complicated, it just needs to work well and be easy to navigate.</p>
+		<p>Jefferson Lam<br>1-19-15</p>
+	</header>
+</div>
 <ul>
 	<li ng-repeat="project in projects | reverse">
-		<a href="{{project.url}}"><h2>{{project.name}}</h2></a>
-		<h5>{{project.date}}</h5>
-		<p>{{project.blurb}}</p>
+		<div class="width-container">
+			<a href="{{project.url}}"><h2>{{project.name}}</h2></a>
+			<h4>{{project.date}}</h4>
+			<h4><a href="{{project.git}}">github</a></h4>
+			<p>{{project.blurb}}</p>
+			<a class="image" href="{{project.img}}"><img src="{{project.img}}"></a>
+		</div>
 	</li>
 </ul>
 </body>
