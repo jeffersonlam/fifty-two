@@ -37,10 +37,7 @@ a{
 }
 
 img{
-	width: 300px;
-}
-
-a.image{
+	width: 400px;
+	margin: 0 auto;
 	display: block;
-	text-align: center;
 }
