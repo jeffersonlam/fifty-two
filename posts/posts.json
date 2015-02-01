@@ -22,5 +22,13 @@
         "git": "https://github.com/jeffersonlam/messengerbot",
         "img": "img/messengerbot.jpg",
         "blurb": "Messengerbot! I built this guy as an exercise in Angular and CSS animations. It's not very usable, but it's still cute and fun to look at. There's a lot of stuff I want to implement, and I might just implement them it throughout the week. Enjoy!"
-    }
+    },
+    {
+        "name": "Eightball",
+        "url": "http://jeffersonlam.github.io/eightball",
+        "date": "January 31st, 2015",
+        "git": "https://github.com/jeffersonlam/eightball",
+        "img": "img/eightball.jpg",
+        "blurb": "I continued down the route of playing with CSS animations and JS, and I recreated the mysterious 8 ball."
+    },
 ]
