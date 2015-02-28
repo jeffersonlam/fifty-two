@@ -20,18 +20,23 @@
 </div>
 <div class="content">
 	<h2>Experiments</h2>
-	<ul ng-hide="projectCtrl.expand">
+	<ul ng-hide="projectCtrl.expanded">
 		<li ng-repeat="project in projectCtrl.projects | reverse">
-			<a href ng-click="projectCtrl.setActive(project)" class="image" ng-style="{'background-image' : 'url({{project.img}})'}"></a>
+			<a href ng-click="projectCtrl.setActive($index)" class="image" ng-style="{'background-image' : 'url({{project.img}})'}"></a>
 		</li>
 	</ul>
-	<section ng-repeat="project in projectCtrl.projects" ng-show="projectCtrl.isActive(project)">
-		<a href ng-click="projectCtrl.minimize(project)">Back</a>
+	<section ng-repeat="project in projectCtrl.projects" ng-show="projectCtrl.isActive($index)">
+		<nav>
+			<a class="back" href ng-click="projectCtrl.close()">Back</a><br>
+			<a class="prev" href ng-click="projectCtrl.showPrev()">prev: {{projectCtrl.projects[projectCtrl.prevProject()].name}}</a>
+			<a class="next" href ng-click="projectCtrl.showNext()">next: {{projectCtrl.projects[projectCtrl.nextProject()].name}}</a>
+		</nav>
 		<a href="{{project.demo}}" class="image" ng-style="{'background-image' : 'url({{project.img}})'}"></a>
 		<h3>{{project.name}}</h3>
 		<h4>{{project.date}}</h4>
 		<h4><a href="{{project.git}}">Github</a></h4>
 		<p>{{project.blurb}}</p>
+		<p>index: {{$index}}</p>
 	</section>
 </div>
 <footer></footer>

@@ -146,7 +146,18 @@ section a.image{
 	height: 350px;	
 }
 
+section nav{
+	clear: both;
+}
+
+section nav a.next{
+	float: right;
+}
+
+
 footer{
-	padding: 25%;
+	margin-top: 100px;
+	padding: 20%;
 	text-align: center;
+	background-color: #272822;
 }
