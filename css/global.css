@@ -76,7 +76,7 @@ h1{
 	max-width: 800px;
 }
 
-.hero a, a:visited{
+.hero a, .hero a:visited{
 	margin-top: 30px;
 	color: white;
 	text-transform: uppercase;
