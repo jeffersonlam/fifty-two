@@ -1,26 +1,50 @@
 [
     {
         "name": "Weathery",
-        "url": "http://jeffersonlam.github.io/weathery/",
         "date": "January 11th, 2015",
+        "demo": "http://jeffersonlam.github.io/weathery/",
         "git": "https://github.com/jeffersonlam/weathery",
         "img": "img/weathery.jpg",
         "blurb": "View the weather in gifs. This project was my exercise in raw Javascript for doing API requests in AJAX."
     }, 
     {
         "name": "Fifty Two",
-        "url": "http://jeffersonlam.github.io/fifty-two/",
         "date": "January 19th, 2015",
+        "demo": "http://jeffersonlam.github.io/fifty-two/",
         "git": "https://github.com/jeffersonlam/fifty-two",
         "img": "img/52.jpg",
         "blurb": "A web page built in Angular to house my 52 week code project. The fact that you're looking at this means I was successful in building my first Angular app! One of my goals is to get comfortable with the MEAN stack (MongoDB, Express, Angular, Node), so learning Angular is my first step towards that goal."
     },
     {
         "name": "Messengerbot",
-        "url": "http://jeffersonlam.github.io/messengerbot/#/",
         "date": "January 25th, 2015",
+        "demo": "http://jeffersonlam.github.io/messengerbot/#/",
         "git": "https://github.com/jeffersonlam/messengerbot",
         "img": "img/messengerbot.jpg",
         "blurb": "Messengerbot! I built this guy as an exercise in Angular and CSS animations. It's not very usable, but it's still cute and fun to look at. There's a lot of stuff I want to implement, and I might just implement them it throughout the week. Enjoy!"
+    },
+    {
+        "name": "Key Fighter",
+        "date": "February 6th, 2015",
+        "demo": "http://jeffersonlam.github.io/keyfighter",
+        "git": "https://github.com/jeffersonlam/keyfighter",
+        "img": "img/keyfighter.jpg",
+        "blurb": "This is something inspired by the practice mode in fighting games like streetfighter. Press some keys, create a combo, and enjoy some sound effects!"
+    },
+    {
+        "name": "Peeps",
+        "date": "2-25-15",
+        "demo": "http://jeffersonlam.github.io/peeps-app/",
+        "git": "https://github.com/jeffersonlam/peeps-app",
+        "img": "img/peeps-app.jpg",
+        "blurb": "This is a dummy Angular app I made following the Codeschool Angular course. I did this as a way to practice the Angular concepts covered in the course, including controllers, directives, custom directives, and http service. The CSS is ugly, but the main purpose is to practice Angular."
+    },
+    {
+        "name": "Roll-a-ball",
+        "date": "2-28-15",
+        "demo": "http://jeffersonlam.github.io/rollaball/",
+        "git": "https://github.com/jeffersonlam/rollaball",
+        "img": "img/rollaball.jpg",
+        "blurb": "tmp"
     }
 ]
