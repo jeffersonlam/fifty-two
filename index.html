@@ -5,29 +5,35 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="js/angular.min.js"></script>
     <script src="js/controllers.js"></script>
-    <script src="js/app.js"></script>
+    <script src="js/helpers.js"></script>
     <link rel="stylesheet" type="text/css" href="css/global.css">
 </head>
-<body ng-controller="FiftyTwoCtrl">
-<div class="width-container">
-	<header>
+<body ng-controller="ProjectController as projectCtrl">
+<div class="hero">
+	<div class="container">
 		<h1>52</h1>
-		<h3>52 weeks, 52 projects</h3>
-		<p>You're looking at the initial draft of my page for my 52 weeks of code.</p>
-		<p>I don't know how it's going to look yet, but I'm gonna pretty it up somehow. It doesn't need to be anything complicated, it just needs to work well and be easy to navigate.</p>
-		<p>Jefferson Lam<br>1-19-15</p>
-	</header>
+		<h3>My 52 weeks of code.</h3>
+		<h3>My path to becoming a better developer.</h3>
+		<h3>- Jefferson Lam</h3>
+		<a href="http://www.jeffersonlam.com/about/">About Me</a>
+	</div>
 </div>
-<ul>
-	<li ng-repeat="project in projects | reverse">
-		<div class="width-container">
-			<a href="{{project.url}}"><h2>{{project.name}}</h2></a>
-			<h4>{{project.date}}</h4>
-			<h4><a href="{{project.git}}">github</a></h4>
-			<p>{{project.blurb}}</p>
-			<img ng-src="{{project.img}}">
-		</div>
-	</li>
-</ul>
+<div class="content">
+	<h2>Experiments</h2>
+	<ul ng-hide="projectCtrl.expand">
+		<li ng-repeat="project in projectCtrl.projects | reverse">
+			<a href ng-click="projectCtrl.setActive(project)" class="image" ng-style="{'background-image' : 'url({{project.img}})'}"></a>
+		</li>
+	</ul>
+	<section ng-repeat="project in projectCtrl.projects" ng-show="projectCtrl.isActive(project)">
+		<a href ng-click="projectCtrl.minimize(project)">Back</a>
+		<a href="{{project.demo}}" class="image" ng-style="{'background-image' : 'url({{project.img}})'}"></a>
+		<h3>{{project.name}}</h3>
+		<h4>{{project.date}}</h4>
+		<h4><a href="{{project.git}}">Github</a></h4>
+		<p>{{project.blurb}}</p>
+	</section>
+</div>
+<footer></footer>
 </body>
 </html>

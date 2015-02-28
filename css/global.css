@@ -1,43 +1,152 @@
+*{
+	box-sizing: border-box;
+	font-family: helvetica;
+}
+
 html, body{
 	margin: 0;
 	padding: 0;
-}
-
-header{
-	text-align: center;
-	padding-bottom: 30px;
+	height: 100%;
+	width: 100%;
 }
 
 h1{
 	margin: 50px;
 	font-size: 4em;
+	font-family: "Times New Roman", Times, serif;
+	border-radius: 50%;
+	border: 3px solid white;
+	display: inline-block;
+	padding: 33px;
+	width: 150px;
+	height: 150px;
+	background: linear-gradient(230deg,#2B93A2,#A0489E,#CBBA68);
+	background-size: 300% 300%;
+	-webkit-animation: MoveBG 60s ease infinite;
+	-moz-animation: MoveBG 60s ease infinite;
+	-o-animation: MoveBG 60s ease infinite;
+	-webkit-animation: MoveBG 60s ease infinite;
+	-webkit-animation-name: MoveBG;
+	-webkit-animation-duration: 60s;
+	-webkit-animation-timing-function: ease;
+	-webkit-animation-delay: initial;
+	-webkit-animation-iteration-count: infinite;
+	-webkit-animation-direction: initial;
+	-webkit-animation-fill-mode: initial;
+	-webkit-animation-play-state: initial;
+}
+@-webkit-keyframes MoveBG {
+    0%{background-position:0% 84%}
+    50%{background-position:100% 16%}
+    100%{background-position:0% 84%}
+}
+
+@-moz-keyframes MoveBG {
+    0%{background-position:0% 84%}
+    50%{background-position:100% 16%}
+    100%{background-position:0% 84%}
+}
+@-o-keyframes MoveBG {
+    0%{background-position:0% 84%}
+    50%{background-position:100% 16%}
+    100%{background-position:0% 84%}
+}
+@keyframes MoveBG { 
+    0%{background-position:0% 84%}
+    50%{background-position:100% 16%}
+    100%{background-position:0% 84%}
+}
+
+.hero{
+	background-color: #272822;
+	height: 90%;
+	font-weight: 100;
+}
+.hero h3{
+	font-weight: 100;
+}
+.hero .container{
+	box-sizing: border-box;
+	color: white;
+	font-family: "verdana";
+	text-align: center;
+	padding-top: 85px;
+	padding-bottom: 30px;
+	margin: 0 auto;
+	max-width: 800px;
+}
+
+.hero a, .hero a:visited{
+	margin-top: 30px;
+	color: white;
+	text-transform: uppercase;
+	border: 3px solid white;
+	text-decoration: none;
+	padding: 15px 20px;
+	transition: background-color 0.2s ease-in-out;
+}
+
+.hero a:hover{
+	background-color: gray;
+}
+
+.content h2{
+	text-align: center;
+	font-weight: 100;
+	line-height: 150px;
 }
 
 ul{
 	list-style: none;
-	margin: 0;
-	padding: 0;
+	padding: 0px;
+	width: 100%;
+	margin: 0 auto;
+	box-sizing: border-box;
+	font-size: 0;
+
 }
 
 li{
-	padding: 30px 0px;
+	box-sizing: border-box;
+	font-size: 16px;
+	padding: 2%;
+	display: inline-block;
+	width: 50%;
+	vertical-align: top;
 }
 
-ul li:nth-child(odd){
-	background-color: #fafafa;
-}
-
-.width-container{
-	max-width: 800px;
-	margin: 0 auto;
-}
 
 a{
 	display: inline-block;
 }
 
-img{
-	width: 400px;
-	margin: 0 auto;
+a.image{
 	display: block;
+	margin: 0 auto;
+	background-size: cover;
+	background-position: 50% 0%;
+	width: 100%;
+	height: 250px;
+	box-shadow: 0px 0px 6px rgba(0,0,0,0.1);
+	transition: all 0.2s;
+}
+
+a.image:hover{
+    box-shadow: 0 0 8px #82D6FD;
+}
+
+section{
+	max-width: 750px;
+	padding: 0 2%;
+	margin: 0 auto;
+	min-height: 100%;
+}
+
+section a.image{
+	height: 350px;	
+}
+
+footer{
+	padding: 25%;
+	text-align: center;
 }
