@@ -22,10 +22,10 @@
 	<li ng-repeat="project in projects | reverse">
 		<div class="width-container">
 			<a href="{{project.demo}}"><h2>{{project.name}}</h2></a>
+			<a class="image" ng-style="{'background-image' : 'url({{project.img}})'}" href="{{project.url}}"></a>
 			<h4>{{project.date}}</h4>
 			<h4><a href="{{project.git}}">github</a></h4>
 			<p>{{project.blurb}}</p>
-			<a class="image" ng-style="{'background-image' : 'url({{project.img}})'}" href="{{project.url}}"></a>
 		</div>
 	</li>
 </ul>
