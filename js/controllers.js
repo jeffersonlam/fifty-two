@@ -1,13 +1,13 @@
 (function(){
 	'use strict';
 
-	var app = angular.module('fiftyTwoApp', ['helpers']);
+	var app = angular.module('fiftyTwoApp', ['ngAnimate']);
 
 	app.controller('ProjectController', ['$http', function (http) {
+		this.projects = [];
+		this.active;
+		this.expanded = false;
 		var projectCtrl = this;
-		projectCtrl.projects = [];
-		projectCtrl.active;
-		projectCtrl.expanded = false;
 
 	    http.get('./data/projects.json').success(function(data){
 	        projectCtrl.projects = data;
@@ -16,39 +16,46 @@
 	    	}
 	    });
 
-	    projectCtrl.setActive = function(index){
-	    	projectCtrl.active = projectCtrl.projects.length - index - 1;
-	    	projectCtrl.expanded = true;
+	    this.setActive = function(index){
+	    	this.active = this.projects.length - index - 1;
+	    	this.expanded = true;
 	    };
 
-	    projectCtrl.isActive = function(index){
-	    	return (projectCtrl.active === index);
+	    this.isActive = function(index){
+	    	return (this.active === index);
 	    }
 
-	    projectCtrl.close = function(){
-	    	projectCtrl.active = null;
-	    	projectCtrl.expanded = false;
+	    this.close = function(){
+	    	this.active = null;
+	    	this.expanded = false;
 	    }
 
-	    projectCtrl.showNext = function(){
-	    	projectCtrl.active = projectCtrl.nextProject();
+	    this.showNext = function(){
+	    	this.active = this.nextProject();
 	    }
-	    projectCtrl.showPrev = function(){
-	    	projectCtrl.active = projectCtrl.prevProject();	
+	    this.showPrev = function(){
+	    	this.active = this.prevProject();	
 	    }
 
-	    projectCtrl.nextProject = function(){
-	    	var num = projectCtrl.active;
+	    this.nextProject = function(){
+	    	var num = this.active;
 	    	num--;
-	    	if (num < 0) num = projectCtrl.projects.length-1;
+	    	if (num < 0) num = this.projects.length-1;
 	    	return num;
 	    }
 
-	    projectCtrl.prevProject = function(){
-	 	   	var num = projectCtrl.active;
+	    this.prevProject = function(){
+	 	   	var num = this.active;
 	    	num++;
-	    	if (num >= projectCtrl.projects.length) num = 0;
+	    	if (num >= this.projects.length) num = 0;
 	    	return num;
 	    }
 	}]);
+	
+	app.filter('reverse', function() {
+	  return function(items) {
+	  	if (!items || !items.length) return;
+	    return items.slice().reverse();
+	  };
+	});
 })();
