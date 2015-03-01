@@ -3,18 +3,16 @@
 <head>
 	<title>52</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-    <script src="js/angular.min.js"></script>
-    <script src="js/angular-animate.min.js"></script>
-    <script src="js/controllers.js"></script>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="css/global.css">
+    <link href='http://fonts.googleapis.com/css?family=Slabo+13px' rel='stylesheet' type='text/css'>
 </head>
 <body ng-controller="ProjectController as projectCtrl">
 	<div class="hero">
 		<div class="container">
 			<h1>52</h1>
-			<h3>My 52 weeks of code.</h3>
-			<h3>My path to becoming a better developer.</h3>
-			<h3>- Jefferson Lam</h3>
+			<h3>52 weeks of code.</h3>
+			<h3>A path to becoming a better developer.</h3>
 			<a href="http://www.jeffersonlam.com/about/">About Me</a>
 		</div>
 	</div>
@@ -28,8 +26,8 @@
 		<section ng-repeat="project in projectCtrl.projects" ng-show="projectCtrl.isActive($index)">
 			<nav>
 				<a class="back" href ng-click="projectCtrl.close()">Back</a><br>
-				<a class="prev" href ng-click="projectCtrl.showPrev()">prev: {{projectCtrl.projects[projectCtrl.prevProject()].name}}</a>
-				<a class="next" href ng-click="projectCtrl.showNext()">next: {{projectCtrl.projects[projectCtrl.nextProject()].name}}</a>
+				<a class="prev" href ng-click="projectCtrl.showPrev()"><i class="fa fa-caret-left"></i> {{projectCtrl.projects[projectCtrl.prevProject()].name}}</a>
+				<a class="next" href ng-click="projectCtrl.showNext()">{{projectCtrl.projects[projectCtrl.nextProject()].name}} <i class="fa fa-caret-right"></i> </a>
 			</nav>
 			<a href="{{project.demo}}" class="image" ng-style="{'background-image' : 'url({{project.img}})'}"></a>
 			<h3>{{project.name}}</h3>
@@ -38,6 +36,14 @@
 			<p>{{project.blurb}}</p>
 		</section>
 	</div>
-	<footer></footer>
+	<footer>
+		<a href="http://twitter.com/jeffersonwlam"><i class="fa fa-twitter"></i></a>
+		<a href="http://github.com/jeffersonlam"><i class="fa fa-github"></i></a>
+		<a href="http://www.linkedin.com/in/jeffersonlam"><i class="fa fa-linkedin"></i></a>
+		<a href="http://jeffersonlam.com"><i class="fa fa-home"></i></a>
+	</footer>
+    <script src="js/angular.min.js"></script>
+    <script src="js/angular-animate.min.js"></script>
+    <script src="js/controllers.js"></script>
 </body>
 </html>

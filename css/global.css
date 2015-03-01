@@ -1,6 +1,6 @@
 *{
 	box-sizing: border-box;
-	font-family: helvetica;
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 html, body{
@@ -11,7 +11,7 @@ html, body{
 }
 
 h1{
-	margin: 50px;
+	margin: 50px 0px 25px 0px;
 	font-size: 4em;
 	font-family: "Times New Roman", Times, serif;
 	border-radius: 50%;
@@ -60,15 +60,15 @@ h1{
 .hero{
 	background-color: #272822;
 	height: 90%;
-	font-weight: 100;
 }
+
 .hero h3{
+	font-size: 16px;
 	font-weight: 100;
 }
 .hero .container{
 	box-sizing: border-box;
 	color: white;
-	font-family: "verdana";
 	text-align: center;
 	padding-top: 85px;
 	padding-bottom: 30px;
@@ -89,10 +89,15 @@ h1{
 .hero a:hover{
 	background-color: gray;
 }
+.content{
+	max-width: 1200px;
+	margin: 0 auto;
+}
 
 .content h2{
+	font-family: 'Slabo 13px', serif;
 	text-align: center;
-	font-weight: 100;
+	font-weight: 200;
 	line-height: 150px;
 }
 
@@ -137,9 +142,10 @@ a.image:hover{
 
 section{
 	max-width: 750px;
-	padding: 0 2%;
+	padding: 3%;
 	margin: 0 auto;
 	min-height: 100%;
+	box-shadow: 0px 0px 8px rgba(0,0,0,0.1);
 }
 
 section a.image{
@@ -148,18 +154,46 @@ section a.image{
 
 section nav{
 	clear: both;
+	margin-bottom: 10px;
 }
 
 section nav a.next{
 	float: right;
 }
 
+section nav a{
+	text-decoration: none;
+	color: black;
+	transition: all 0.2s;
+}
+
+section nav a:hover{
+	color: #82D6FD;
+}
+
 
 footer{
 	margin-top: 100px;
-	padding: 20%;
+	padding-top: 130px;
+	height: 300px;
 	text-align: center;
 	background-color: #272822;
+}
+
+footer a{
+	display: inline-block;
+	font-size: 2em;
+	width: 50px;
+	transition: color 0.2s;
+	color: white;
+}
+
+footer a, footer a:visited{
+	text-decoration: none;
+}
+
+footer a:hover{
+	color: #82D6FD;
 }
 
 /*.ng-enter{
