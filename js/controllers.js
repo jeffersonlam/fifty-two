@@ -5,20 +5,27 @@
 
 	app.controller('ProjectController', ['$http', function (http) {
 		this.projects = [];
-		this.active;
-		this.expanded = false;
+		this.active = null;
 		var projectCtrl = this;
 
 	    http.get('./data/projects.json').success(function(data){
 	        projectCtrl.projects = data;
-	        for (var i = 0; i<projectCtrl.projects.length; i++){
-	    		projectCtrl.projects[i].show = false;
-	    	}
+	        for (var i = 0; i < data.length; i++){
+	        	if (i == data.length-1){
+	        		data[i].next = data[0];
+	        	} else {
+	        		data[i].next = data[i+1];
+	        	}
+	        	if (i == 0){
+	        		data[i].prev = data[data.length-1];
+	        	} else {
+	        		data[i].prev = data[i-1];
+	        	}
+	        }
 	    });
 
 	    this.setActive = function(index){
-	    	this.active = this.projects.length - index - 1;
-	    	this.expanded = true;
+	    	this.active = this.projects[this.projects.length - index - 1];
 	    };
 
 	    this.isActive = function(index){
@@ -27,28 +34,13 @@
 
 	    this.close = function(){
 	    	this.active = null;
-	    	this.expanded = false;
 	    }
 
 	    this.showNext = function(){
-	    	this.active = this.nextProject();
+	    	this.active = this.active.next;
 	    }
 	    this.showPrev = function(){
-	    	this.active = this.prevProject();	
-	    }
-
-	    this.nextProject = function(){
-	    	var num = this.active;
-	    	num--;
-	    	if (num < 0) num = this.projects.length-1;
-	    	return num;
-	    }
-
-	    this.prevProject = function(){
-	 	   	var num = this.active;
-	    	num++;
-	    	if (num >= this.projects.length) num = 0;
-	    	return num;
+	    	this.active = this.active.prev;
 	    }
 	}]);
 	
@@ -57,5 +49,15 @@
 	  	if (!items || !items.length) return;
 	    return items.slice().reverse();
 	  };
+	});
+
+	app.directive('backImg', function(){
+	    return function(scope, element, attrs){
+	        attrs.$observe('backImg', function(value) {
+	            element.css({
+	                'background-image': 'url(' + value +')'
+	            });
+	        });
+	    };
 	});
 })();

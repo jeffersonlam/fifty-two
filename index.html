@@ -16,31 +16,42 @@
 			<a href="http://www.jeffersonlam.com/about/">About Me</a>
 		</div>
 	</div>
-	<div class="content">
-		<h2>Experiments</h2>
-		<ul ng-hide="projectCtrl.expanded">
-			<li ng-repeat="project in projectCtrl.projects | reverse">
-				<a href ng-click="projectCtrl.setActive($index)" class="image" ng-style="{'background-image' : 'url({{project.img}})'}"></a>
-			</li>
-		</ul>
-		<section ng-repeat="project in projectCtrl.projects" ng-show="projectCtrl.isActive($index)">
-			<nav>
-				<a class="back" href ng-click="projectCtrl.close()">Back</a><br>
-				<a class="prev" href ng-click="projectCtrl.showPrev()"><i class="fa fa-caret-left"></i> {{projectCtrl.projects[projectCtrl.prevProject()].name}}</a>
-				<a class="next" href ng-click="projectCtrl.showNext()">{{projectCtrl.projects[projectCtrl.nextProject()].name}} <i class="fa fa-caret-right"></i> </a>
-			</nav>
-			<a href="{{project.demo}}" class="image" ng-style="{'background-image' : 'url({{project.img}})'}"></a>
-			<h3>{{project.name}}</h3>
-			<h4>{{project.date}}</h4>
-			<h4><a href="{{project.git}}">Github</a></h4>
-			<p>{{project.blurb}}</p>
-		</section>
+	<div class="content-wrapper">
+		<div class="content">
+			<h2>Experiments</h2>
+
+			<!-- Tiles View -->
+			<ul class="tiles" ng-hide="projectCtrl.active">
+				<li ng-repeat="project in projectCtrl.projects | reverse">
+					<a href ng-click="projectCtrl.setActive($index)" class="image" ng-style="{'background-image' : 'url({{project.img}})'}"></a>
+					<div class="banner">
+						<a href ng-click="projectCtrl.setActive($index)"><i class="fa fa-info fa-lg"></i></a>
+						<a href="{{project.demo}}"><i class="fa fa-external-link fa-lg"></i></a>
+					</div>
+				</li>
+			</ul>
+
+			<!-- Modal View -->
+			<section class="modal" ng-show="projectCtrl.active">
+				<a class="back" href ng-click="projectCtrl.close()"><i class="fa fa-arrow-circle-left fa-lg"></i></a><br><br>
+				<nav>
+					<a class="prev" href ng-click="projectCtrl.showPrev()"><i class="fa fa-caret-left"></i> {{projectCtrl.active.prev.name}}</a>
+					<a class="next" href ng-click="projectCtrl.showNext()">{{projectCtrl.active.next.name}} <i class="fa fa-caret-right"></i> </a>
+				</nav>
+				<a href="{{projectCtrl.active.demo}}" class="image" back-img="{{projectCtrl.active.img}}"></a>
+				<h3>{{projectCtrl.active.name}}</h3>
+				<h4>{{projectCtrl.active.date}}</h4>
+				<a href="{{projectCtrl.active.git}}"><i class="fa fa-github fa-2x"></i></a>
+				<p>{{projectCtrl.active.blurb}}</p>
+			</section>
+		</div>
 	</div>
 	<footer>
-		<a href="http://twitter.com/jeffersonwlam"><i class="fa fa-twitter"></i></a>
-		<a href="http://github.com/jeffersonlam"><i class="fa fa-github"></i></a>
-		<a href="http://www.linkedin.com/in/jeffersonlam"><i class="fa fa-linkedin"></i></a>
-		<a href="http://jeffersonlam.com"><i class="fa fa-home"></i></a>
+		<a href="http://twitter.com/jeffersonwlam"><i class="fa fa-twitter fa-2x"></i></a>
+		<a href="http://github.com/jeffersonlam"><i class="fa fa-github fa-2x"></i></a>
+		<a href="http://www.linkedin.com/in/jeffersonlam"><i class="fa fa-linkedin fa-2x"></i></a>
+		<a href="http://jeffersonlam.com"><i class="fa fa-home fa-2x"></i></a>
+		<p>&copy; Jefferson Lam 2015. All rights reserved.</p>
 	</footer>
     <script src="js/angular.min.js"></script>
     <script src="js/angular-animate.min.js"></script>
