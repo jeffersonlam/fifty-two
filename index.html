@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html ng-app="fiftyTwoApp">
+<head>
+	<title>52</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="css/global.css">
+    <link href='http://fonts.googleapis.com/css?family=Slabo+13px' rel='stylesheet' type='text/css'>
+</head>
+<body ng-controller="ProjectController as projectCtrl">
+	<div class="hero">
+		<div class="container">
+			<h1>52</h1>
+			<h3>52 weeks of code.</h3>
+			<h3>A path to becoming a better developer.</h3>
+			<a href="http://www.jeffersonlam.com/about/">About Me</a>
+		</div>
+	</div>
+	<div class="content-wrapper">
+		<div class="content">
+			<h2>Experiments</h2>
+
+			<!-- Tiles View -->
+			<ul class="tiles" ng-hide="projectCtrl.active">
+				<li ng-repeat="project in projectCtrl.projects | reverse">
+					<a href ng-click="projectCtrl.setActive($index)" class="image" ng-style="{'background-image' : 'url({{project.img}})'}"></a>
+					<div class="banner">
+						<a href ng-click="projectCtrl.setActive($index)"><i class="fa fa-info fa-lg"></i></a>
+						<a target="_blank" href="{{project.demo}}"><i class="fa fa-external-link fa-lg"></i></a>
+					</div>
+				</li>
+			</ul>
+
+			<!-- Modal View -->
+			<section class="modal" ng-show="projectCtrl.active">
+				<a class="back" href ng-click="projectCtrl.close()"><i class="fa fa-arrow-circle-left fa-lg"></i></a><br><br>
+				<nav>
+					<a class="prev" href ng-click="projectCtrl.showPrev()"><i class="fa fa-caret-left"></i> {{projectCtrl.active.prev.name}}</a>
+					<a class="next" href ng-click="projectCtrl.showNext()">{{projectCtrl.active.next.name}} <i class="fa fa-caret-right"></i> </a>
+				</nav>
+				<a href="{{projectCtrl.active.demo}}" class="image" back-img="{{projectCtrl.active.img}}"></a>
+				<h3>{{projectCtrl.active.name}}</h3>
+				<h4>{{projectCtrl.active.date}}</h4>
+				<a href="{{projectCtrl.active.git}}"><i class="fa fa-github fa-2x"></i></a>
+				<p>{{projectCtrl.active.blurb}}</p>
+			</section>
+		</div>
+	</div>
+	<footer>
+		<a href="http://twitter.com/jeffersonwlam"><i class="fa fa-twitter fa-2x"></i></a>
+		<a href="http://github.com/jeffersonlam"><i class="fa fa-github fa-2x"></i></a>
+		<a href="http://www.linkedin.com/in/jeffersonlam"><i class="fa fa-linkedin fa-2x"></i></a>
+		<a href="http://jeffersonlam.com"><i class="fa fa-home fa-2x"></i></a>
+		<p>&copy; Jefferson Lam 2015. All rights reserved.</p>
+	</footer>
+    <script src="js/angular.min.js"></script>
+    <script src="js/angular-animate.min.js"></script>
+    <script src="js/controllers.js"></script>
+</body>
+</html>
