@@ -35,8 +35,8 @@
 			<section class="modal" ng-show="projectCtrl.active">
 				<a class="back" href ng-click="projectCtrl.close()"><i class="fa fa-arrow-circle-left fa-lg"></i></a><br><br>
 				<nav>
-					<a class="prev" href ng-click="projectCtrl.showPrev()"><i class="fa fa-caret-left"></i> {{projectCtrl.active.prev.name}}</a>
-					<a class="next" href ng-click="projectCtrl.showNext()">{{projectCtrl.active.next.name}} <i class="fa fa-caret-right"></i> </a>
+					<a class="prev" href ng-click="projectCtrl.showNext()"><i class="fa fa-caret-left"></i> {{projectCtrl.active.next.name}}</a>
+					<a class="next" href ng-click="projectCtrl.showPrev()">{{projectCtrl.active.prev.name}} <i class="fa fa-caret-right"></i> </a>
 				</nav>
 				<a href="{{projectCtrl.active.demo}}" class="image" back-img="{{projectCtrl.active.img}}"></a>
 				<h3>{{projectCtrl.active.name}}</h3>
@@ -53,8 +53,17 @@
 		<a href="http://jeffersonlam.com"><i class="fa fa-home fa-2x"></i></a>
 		<p>&copy; Jefferson Lam 2015. All rights reserved.</p>
 	</footer>
-    <script src="js/angular.min.js"></script>
-    <script src="js/angular-animate.min.js"></script>
-    <script src="js/controllers.js"></script>
+  <script src="js/angular.min.js"></script>
+  <script src="js/angular-animate.min.js"></script>
+  <script src="js/controllers.js"></script>
+  <script>
+	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+	  ga('create', 'UA-46392706-2', 'auto');
+	  ga('send', 'pageview');
+  </script>
 </body>
 </html>
